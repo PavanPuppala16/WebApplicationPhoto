@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebApplicationPhoto.Models.ProjectModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+
+    @foreach (var item in Model)
+    {    
+        @Html.DisplayFor(modelItem => item.Product_Name)
+        <a asp-controller="Uploading" asp-action="Index">
+            <img id="@item.Id" src="@Url.Content(@item.Product_Image)"
+             data-zoom-image="@Url.Content(@item.Product_Image)" style="width:450px;height:300px" />
+        </a>
+
+        @Html.DisplayFor(modelItem => item.Product_Price)
+        @Html.DisplayFor(modelItem => item.Product_Qulaity)
+
+
+
+
+    }
+
+
+
+</body>
+</html>

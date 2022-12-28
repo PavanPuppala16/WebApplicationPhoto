@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>calculator</title>
+    <style>
+        $('input[class="QtyReq"]').keyup(function () {
+               $(this).addClass('selected').siblings().removeClass('selected');
+               var unitprice = $(this).closest("tr").find('.UnitPrice');
+               var qtyreq = $(this).closest("tr").find('.QtyReq');
+               var total = $(this).closest("tr").find('.Total');
+               total.val(unitprice.val() * qtyreq.val());
+
+           });
+    </style>
+</head>
+<body>
+    var tr = '
+    <input id="' + Item_Name + '" type="text" class="ItemName ItemNames" />
+    <button id="btnOk" type="button" class="btn btn-primary btn-xs">..</button>' +
+    '
+    <input id="' + ItemR_Code + '" type="text" class="IRCode" />' +
+    '
+    <input id="' + Item_Code + '" type="text" class="ItemCode" disabled="disabled" />' +
+    '
+    <input id="' + Unit_Price + '" type="text" class="UnitPrice" disabled="disabled" />' +
+    '
+    <input id="' + Qty_Req + '" type="text" class="QtyReq" />' +
+    '
+    <input id="' + Total + '" type="text" class="Total" disabled="disabled" />' +
+    ' Save Cancel' +
+    '';
+
+    $("#grid tbody").append(tr);
+</body>
+</html>

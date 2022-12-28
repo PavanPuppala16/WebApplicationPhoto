@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebApplicationPhoto.Models.Uploads>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Buy</title>
+</head>
+<body>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    <img src="@Url.Content(@item.Name)" height="100" width="100" new { id=item.Id} />
+                </td>
+             
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <p>@Html.ActionLink("Buy", "","Ecommers", new { id=item.Id})</p>
+                </td>
+                @* <td><input type="button" name="btnMultiply" value="Submit" onclick="calculate()" /></td>*@
+                @* <td>
+            @Html.TextBoxFor(modelItem => item.Total)
+            </td>*@
+            </tr>
+
+        </tbody>
+    }
+</body>
+</html>

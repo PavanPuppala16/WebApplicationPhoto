@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebApplicationPhoto.Models.Uploads>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+</head>
+<body>
+    <table class="table table-striped">
+        <tr>
+         
+            <th>NAME</th>
+           
+        </tr>
+        @foreach (var item in Model)
+        {   <tr>
+            <a asp-controller="Uploading" asp-action="Index">
+                <img id="@item.Id" src="@Url.Content(@item.Name)"
+                 data-zoom-image="@Url.Content(@item.Name)" style="width:450px;height:300px" />
+                   
+            </a>
+            </tr>
+        }
+
+</body>
+</html>
